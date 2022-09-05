@@ -27,14 +27,18 @@ header {
   right: 100px;
 }
 
-header ul {
+ul {
   display: flex;
 }
 
-header ul li {
+ul li {
   display: flex;
   justify-content: space-between;
   margin: 20px;
   color: white;
   text-decoration: none;
+}
+
+nav {
+  align-items: center;
 }

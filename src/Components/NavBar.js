@@ -3,6 +3,7 @@ import logo from "../assets/logo.png";
 import "./NavBar.css";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import { CartWidget } from "./CartWidget";
 
 const NavBar = () => {
   return (
@@ -28,6 +29,7 @@ const NavBar = () => {
             <a href="http://">
               <li>CONTACTO</li>
             </a>
+            <CartWidget />
           </ul>
         </nav>
       </header>
