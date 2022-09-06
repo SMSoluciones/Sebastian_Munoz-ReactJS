@@ -3,7 +3,11 @@ import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 
 export const CartWidget = () => {
   return (
-    <ShoppingBasketIcon style={styles.cart} fontSize="large" color="success" />
+    <ShoppingBasketIcon
+      style={styles.cart}
+      fontSize="large"
+      sx={{ color: "#ffffff" }}
+    />
   );
 };
 

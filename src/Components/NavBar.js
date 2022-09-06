@@ -9,8 +9,8 @@ const NavBar = () => {
   return (
     <>
       <div className="contacto_directo">
-        <InstagramIcon fontSize="medium" />
-        <WhatsAppIcon fontSize="medium" />
+        <InstagramIcon fontSize="medium" sx={{ color: "gray" }} />
+        <WhatsAppIcon fontSize="medium" sx={{ color: "gray" }} />
       </div>
 
       <header>
