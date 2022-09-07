@@ -1,9 +1,9 @@
 import React from "react";
-import logo from "../assets/logo.png";
-import "./NavBar.css";
+import logo from "../../assets/logo.png";
+import "../NavBar/NavBar.css";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import { CartWidget } from "./CartWidget";
+import { CartWidget } from "../CartWidget/CartWidget";
 
 const NavBar = () => {
   return (
