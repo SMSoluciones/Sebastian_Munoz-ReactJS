@@ -6,7 +6,7 @@
 
 ## ✅ Desafío: Crea tu landing
 
-## Desafío: Contador con botón
+## ✅ Desafío: Contador con botón
 
 ## Desafío: Catálogo con MAPS y Promises
 
