@@ -39,6 +39,7 @@
 .contenedor_agregar {
   justify-content: center;
   display: flex;
+  margin-bottom: 50px;
 }
 
 .agregar {
