@@ -2,6 +2,7 @@
   display: flex;
   height: 300px;
   width: 250px;
+  transition: transform 0.2s;
   background-color: rgb(220, 220, 220);
   flex-direction: column;
   justify-content: center;
@@ -9,11 +10,30 @@
   border: 0;
   border-radius: 20px;
   filter: drop-shadow(5px 5px 5px gray);
+  margin: 15px;
 }
 
 .item:hover {
-  transform: scale(1.2, 1.2);
+  transform: scale(1.1, 1.1);
   transition: transform 0.2s;
+}
+
+.item p {
+  display: flex;
+  align-items: left;
+  font-size: 15px;
+  height: 5px;
+}
+
+.item h5 {
+  height: 10px;
+}
+
+.item img {
+  display: flex;
+  width: 220px;
+  height: 165px;
+  border-radius: 20px;
 }
 
 .item button {
@@ -21,4 +41,9 @@
   border-radius: 5px;
   font-size: 15px;
   font-weight: 400;
+  margin-top: 15px;
+}
+
+.item .price {
+  font-size: 20px;
 }

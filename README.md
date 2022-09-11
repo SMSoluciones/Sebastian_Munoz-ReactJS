@@ -8,7 +8,7 @@
 
 ## ✅ Desafío: Contador con botón
 
-## Desafío: Catálogo con MAPS y Promises
+## ✅ Desafío: Catálogo con MAPS y Promises
 
 ## Desafío: Detalle de Producto
 

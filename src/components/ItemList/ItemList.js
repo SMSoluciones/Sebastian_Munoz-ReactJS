@@ -2,11 +2,14 @@ import React from "react";
 import Item from "../Item/Item";
 import "../ItemList/item_container.css";
 
-const ItemList = () => {
+const ItemList = ({ listProducts }) => {
+  // console.log(listProducts) //Test;
   return (
     <>
       <div className="item_container">
-        <Item />
+        {listProducts.map((prod, i) => (
+          <Item key={`${prod.product}-${i}`} product={prod} />
+        ))}
       </div>
     </>
   );
