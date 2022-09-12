@@ -7,4 +7,16 @@ main {
   justify-content: center;
   margin-top: 150px;
   margin-bottom: 50px;
+  flex-direction: column;
+}
+
+main h2 {
+  display: flex;
+  justify-content: center;
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  margin: 40px;
 }

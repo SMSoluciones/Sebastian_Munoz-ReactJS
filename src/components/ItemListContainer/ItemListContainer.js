@@ -36,10 +36,13 @@ export const ItemListContainer = (props) => {
     <>
       <main>
         <h2>{props.greeting}</h2>
+        {loading ? (
+          <BeatLoader className="spinner" />
+        ) : (
+          <ItemList listProducts={listProducts} />
+        )}
+        <ItemCount inicio={1} stock={10} onAdd={onAdd} />
       </main>
-      {loading ? <BeatLoader /> : <ItemList listProducts={listProducts} />}
-
-      <ItemCount inicio={1} stock={10} onAdd={onAdd} />
     </>
   );
 };
