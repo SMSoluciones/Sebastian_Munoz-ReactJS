@@ -37,7 +37,7 @@ export const ItemListContainer = (props) => {
       <main>
         <h2>{props.greeting}</h2>
         {loading ? (
-          <BeatLoader className="spinner" />
+          <BeatLoader color="gray" className="spinner" />
         ) : (
           <ItemList listProducts={listProducts} />
         )}
