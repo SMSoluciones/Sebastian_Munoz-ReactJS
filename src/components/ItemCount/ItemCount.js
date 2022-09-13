@@ -16,19 +16,19 @@ const ItemCount = ({ inicio, stock, onAdd }) => {
     <>
       <div className="contador">
         <button
-          disabled={count >= stock}
-          onClick={sumar}
-          className="sumarRestar"
-        >
-          +
-        </button>
-        <span className="numero">{count}</span>
-        <button
           disabled={count <= inicio}
           onClick={restar}
           className="sumarRestar"
         >
           -
+        </button>
+        <span className="numero">{count}</span>
+        <button
+          disabled={count >= stock}
+          onClick={sumar}
+          className="sumarRestar"
+        >
+          +
         </button>
       </div>
       <div className="contenedor_agregar">
