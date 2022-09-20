@@ -1,0 +1,33 @@
+.itemDetail {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin: 20px;
+  background-color: rgb(220, 220, 220);
+  padding: 40px;
+  border-radius: 20px;
+}
+
+.itemDetail img {
+  display: flex;
+  border-radius: 20px;
+}
+
+.itemDetail button {
+  border: 0;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 400;
+  margin-top: 15px;
+}
+
+.price {
+  font-size: 30px;
+}
+
+.itemInformation {
+  display: flex;
+  justify-content: right;
+  flex-direction: column;
+  margin-left: 30px;
+}

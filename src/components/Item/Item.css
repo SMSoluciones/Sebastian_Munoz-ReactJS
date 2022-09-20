@@ -1,7 +1,7 @@
 .item {
   display: flex;
-  height: 300px;
-  width: 250px;
+  height: auto;
+  width: auto;
   transition: transform 0.2s;
   background-color: rgb(220, 220, 220);
   flex-direction: column;
@@ -11,6 +11,7 @@
   border-radius: 20px;
   filter: drop-shadow(5px 5px 5px gray);
   margin: 15px;
+  padding: 20px;
 }
 
 .item:hover {

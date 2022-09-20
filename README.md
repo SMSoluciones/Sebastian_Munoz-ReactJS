@@ -10,7 +10,7 @@
 
 ## ✅ Desafío: Catálogo con MAPS y Promises
 
-## Desafío: Detalle de Producto
+## ✅ Desafío: Detalle de Producto
 
 ## Primera Entrega del Proyecto Final
 
