@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { products } from "../../assets/products";
 import { ItemDetail } from "../ItemDetail/ItemDetail";
 import "./ItemDetailContainer.css";
+import BeatLoader from "react-spinners/BeatLoader";
 
 const ItemDetailContainer = () => {
   // Promesa
@@ -13,16 +14,24 @@ const ItemDetailContainer = () => {
       }, 3000);
     });
   };
-
-  const [item, setItem] = useState({});
+  //Hooks
+  const [item, setItem] = useState([]);
+  const [loading, setLoading] = useState({});
 
   useEffect(() => {
-    getItem(products).then((respuesta) => setItem(respuesta));
+    getItem(products).then((respuesta) => {
+      setLoading(false);
+      setItem(respuesta);
+    });
   }, []);
 
   return (
     <div className="detailContainer">
-      <ItemDetail item={item} />
+      {loading ? (
+        <BeatLoader color="gray" className="spinner" />
+      ) : (
+        <ItemDetail item={item} />
+      )}
     </div>
   );
 };

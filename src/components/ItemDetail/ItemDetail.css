@@ -13,14 +13,6 @@
   border-radius: 20px;
 }
 
-.itemDetail button {
-  border: 0;
-  border-radius: 5px;
-  font-size: 15px;
-  font-weight: 400;
-  margin-top: 15px;
-}
-
 .price {
   font-size: 30px;
 }

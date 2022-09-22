@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react"; // Hooks
 import "./ItemListContainer.css";
-import ItemCount from "../ItemCount/ItemCount";
 import ItemList from "../ItemList/ItemList";
 import BeatLoader from "react-spinners/BeatLoader";
 import { products } from "../../assets/products"; //Productos de base de datos.
@@ -26,11 +25,6 @@ export const ItemListContainer = (props) => {
     });
   }, []);
 
-  // Respuesta a Carga en log.
-  const onAdd = (cantidad) => {
-    console.log(`Usted ha cargado ${cantidad} unidades`);
-  };
-
   //Return
   return (
     <>
@@ -41,7 +35,6 @@ export const ItemListContainer = (props) => {
         ) : (
           <ItemList listProducts={listProducts} />
         )}
-        <ItemCount inicio={1} stock={10} onAdd={onAdd} />
       </main>
     </>
   );
