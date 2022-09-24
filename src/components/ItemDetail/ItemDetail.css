@@ -2,10 +2,10 @@
   display: flex;
   justify-content: center;
   flex-direction: row;
-  margin: 20px;
   background-color: rgb(220, 220, 220);
   padding: 40px;
   border-radius: 20px;
+  height: auto;
 }
 
 .itemDetail img {

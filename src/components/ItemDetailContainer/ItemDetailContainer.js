@@ -7,7 +7,7 @@ import BeatLoader from "react-spinners/BeatLoader";
 
 const ItemDetailContainer = () => {
   // Promesa
-  const getItem = () => {
+  const customFetch = () => {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(products[0]);
@@ -15,13 +15,13 @@ const ItemDetailContainer = () => {
     });
   };
   //Hooks
-  const [item, setItem] = useState([]);
+  const [item, setItem] = useState({});
   const [loading, setLoading] = useState({});
 
   useEffect(() => {
-    getItem(products).then((respuesta) => {
+    customFetch(products).then((res) => {
       setLoading(false);
-      setItem(respuesta);
+      setItem(res);
     });
   }, []);
 

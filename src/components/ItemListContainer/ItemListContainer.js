@@ -6,10 +6,10 @@ import { products } from "../../assets/products"; //Productos de base de datos.
 
 export const ItemListContainer = (props) => {
   // Promesa
-  const itemPromise = (productos) => {
+  const itemPromise = (products) => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve(productos);
+        resolve(products);
       }, 2000);
     });
   };
@@ -19,9 +19,9 @@ export const ItemListContainer = (props) => {
   const [listProducts, setListProducts] = useState(true);
 
   useEffect(() => {
-    itemPromise(products).then((respuesta) => {
+    itemPromise(products).then((res) => {
       setLoading(false);
-      setListProducts(respuesta);
+      setListProducts(res);
     });
   }, []);
 
@@ -30,6 +30,7 @@ export const ItemListContainer = (props) => {
     <>
       <main>
         <h2>{props.greeting}</h2>
+
         {loading ? (
           <BeatLoader color="gray" className="spinner" />
         ) : (
