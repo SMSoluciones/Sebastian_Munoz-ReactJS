@@ -1,5 +1,7 @@
 import React from "react";
 import "../Nav/Nav.css";
+import { Link } from "react-router-dom";
+import { CartWidget } from "../../CartWidget/CartWidget";
 
 export const Nav = ({ category }) => {
   return (
@@ -7,15 +9,14 @@ export const Nav = ({ category }) => {
       <nav>
         {category.map((category) => {
           return (
-            <a
-              className="links"
-              key={category.id}
-              href="http://www.compucalitv.com"
-            >
+            <Link className="links" key={category.id} to={category.route}>
               {category.nombre}
-            </a>
+            </Link>
           );
         })}
+        <Link to="/cart">
+          <CartWidget />
+        </Link>
       </nav>
     </>
   );
