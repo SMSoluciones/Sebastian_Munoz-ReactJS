@@ -18,7 +18,7 @@ Este repositorio esta dedicado a las entregas del modulo ReactJS de la carrera F
 
 ## ✅ Primera Entrega del Proyecto Final
 
-## Desafío: Sincronizar counter
+## ✅ Desafío: Sincronizar counter
 
 ## Desafío: CartContext
 
