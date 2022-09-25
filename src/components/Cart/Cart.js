@@ -1,5 +1,8 @@
 import React from "react";
+import "../Cart/Cart.css";
 
 export const Cart = () => {
-  return <div>¡Estos son sus productos en el Cart!</div>;
+  return (
+    <div className="cart">¡Todavia no tienes productos en el Cart 💩!</div>
+  );
 };

@@ -1,29 +1,31 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { products } from "../../assets/products";
 import { ItemDetail } from "../ItemDetail/ItemDetail";
 import "./ItemDetailContainer.css";
 import BeatLoader from "react-spinners/BeatLoader";
 
 const ItemDetailContainer = () => {
-  // Promesa
-  const customFetch = () => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(products[0]);
-      }, 3000);
-    });
-  };
   //Hooks
   const [item, setItem] = useState({});
   const [loading, setLoading] = useState({});
+  const { productId } = useParams();
 
   useEffect(() => {
-    customFetch(products).then((res) => {
+    // Promesa
+    const itemPromise = () => {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(products);
+        }, 200);
+      });
+    };
+    itemPromise(products).then((res) => {
+      setItem(res.find((products) => products.id === parseInt(productId)));
       setLoading(false);
-      setItem(res);
     });
-  }, []);
+  }, [productId]);
 
   return (
     <div className="detailContainer">

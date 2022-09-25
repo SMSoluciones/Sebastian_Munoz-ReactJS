@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom"; // Hooks
+import { useParams } from "react-router-dom";
 import "./ItemListContainer.css";
 import ItemList from "../ItemList/ItemList";
 import BeatLoader from "react-spinners/BeatLoader";
@@ -10,8 +10,8 @@ export const ItemListContainer = (props) => {
   let { categoryId } = useParams();
   console.log(categoryId);
 
-  const [loading, setLoading] = useState([]);
   const [listProducts, setListProducts] = useState(true);
+  const [loading, setLoading] = useState({});
 
   useEffect(() => {
     // Promesa
@@ -19,7 +19,7 @@ export const ItemListContainer = (props) => {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve(products);
-        }, 2000);
+        }, 500);
       });
     };
     if (categoryId) {
