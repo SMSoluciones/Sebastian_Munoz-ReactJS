@@ -3,12 +3,22 @@ import "./ItemDetail.css";
 import ItemCount from "../ItemCount/ItemCount";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useCartContext } from "../../Context/CartContext";
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css";
 
 export const ItemDetail = ({ item }) => {
-  const [terminarCompra, setTerminarCompra] = useState();
+  const [terminarCompra, setTerminarCompra] = useState(false);
+  const { addItem } = useCartContext();
+
   // Respuesta a Carga en log.
   const onAdd = (cantidad) => {
     setTerminarCompra(true);
+    addItem(item, cantidad);
+    Toastify({
+      text: `Usted a agregado ${cantidad} unidades de ${item.title}.`,
+      duration: 3500,
+    }).showToast();
   };
   return (
     <div className="itemDetail">

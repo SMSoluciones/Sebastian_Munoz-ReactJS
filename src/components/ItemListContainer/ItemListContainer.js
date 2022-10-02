@@ -8,7 +8,6 @@ import { products } from "../../assets/products"; //Productos de base de datos.
 export const ItemListContainer = (props) => {
   //Hooks
   let { categoryId } = useParams();
-  console.log(categoryId);
 
   const [listProducts, setListProducts] = useState(true);
   const [loading, setLoading] = useState({});
