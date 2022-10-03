@@ -3,6 +3,7 @@ import "../Cart/Cart.css";
 import { useCartContext } from "../../Context/CartContext";
 import { ItemCart } from "./ItemCart";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 export const Cart = () => {
   const { cart, totalPrice } = useCartContext();
@@ -10,9 +11,12 @@ export const Cart = () => {
   if (cart.length === 0) {
     return (
       <>
-        <p>
-          No hay productos en el carrito <Link to="/">Volver</Link>
-        </p>
+        <AvisoCart>
+          <p>¡Todavía no has ingresado productos en el carrito! 🤷‍♂️</p>
+          <Link to="/">
+            <button>Volver</button>
+          </Link>
+        </AvisoCart>
       </>
     );
   }
@@ -28,3 +32,18 @@ export const Cart = () => {
     </>
   );
 };
+
+const AvisoCart = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 200px;
+  font-weight: bold;
+  font-size: 25px;
+
+  button {
+    width: 200px;
+    text-decoration: none;
+  }
+`;
