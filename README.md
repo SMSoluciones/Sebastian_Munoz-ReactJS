@@ -22,7 +22,7 @@ Este repositorio esta dedicado a las entregas del modulo ReactJS de la carrera F
 
 ## ✅ Desafío: CartContext
 
-## Desafío: Cart View
+## ✅ Desafío: Cart View
 
 ## Desafío: Item Collection
 
