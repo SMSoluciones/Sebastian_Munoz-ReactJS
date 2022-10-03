@@ -1,6 +1,14 @@
 import React from "react";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
+import { useCartContext } from "../../Context/CartContext";
 
 export const CartWidget = () => {
-  return <ShoppingBasketIcon fontSize="large" sx={{ color: "#ffffff" }} />;
+  const { totalProd } = useCartContext("");
+
+  return (
+    <>
+      <div>{totalProd()}</div>
+      <ShoppingBasketIcon fontSize="large" sx={{ color: "#ffffff" }} />
+    </>
+  );
 };

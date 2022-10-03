@@ -7,6 +7,17 @@ export const useCartContext = () => useContext(CartContext);
 export const CustomProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
+  // Suma el precio total.
+  const totalPrice = () =>
+    cart.reduce((prev, act) => prev + act.cantidad * act.price, 0);
+
+  // Suma el precio total de productos.
+  const totalProd = () =>
+    cart.reduce(
+      (acumulador, productActual) => acumulador + productActual.cantidad,
+      0
+    );
+
   //Agregar item al carrito.
   const addItem = (item, cantidad) => {
     if (isInCart(item.id)) {
@@ -22,7 +33,7 @@ export const CustomProvider = ({ children }) => {
     }
   };
 
-  console.log("Cart:", cart);
+  console.log("Cart de CartContext:", cart);
 
   //Eliminar item
   const removeItem = (id) => {
@@ -37,7 +48,17 @@ export const CustomProvider = ({ children }) => {
 
   return (
     <>
-      <CartContext.Provider value={{ addItem, clear, isInCart, removeItem }}>
+      <CartContext.Provider
+        value={{
+          addItem,
+          clear,
+          isInCart,
+          removeItem,
+          totalPrice,
+          totalProd,
+          cart,
+        }}
+      >
         {children}
       </CartContext.Provider>
     </>
