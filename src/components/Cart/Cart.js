@@ -1,12 +1,11 @@
 import React from "react";
-import "../Cart/Cart.css";
 import { useCartContext } from "../../Context/CartContext";
 import { ItemCart } from "./ItemCart";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Cart = () => {
-  const { cart, totalPrice } = useCartContext();
+  const { cart, totalPrice, clear } = useCartContext();
 
   if (cart.length === 0) {
     return (
@@ -22,13 +21,16 @@ export const Cart = () => {
   }
   return (
     <>
-      <Link to="/">
-        <button>Agregar mas productos</button>
-      </Link>
       {cart.map((product) => (
         <ItemCart key={product.id} product={product} />
       ))}
-      <p>Total a abonar: {totalPrice()}</p>
+      <FinalContenedor>
+        <button onClick={() => clear()}>Limpiar</button>
+        <Link to="/">
+          <button>Agregar mas productos</button>
+        </Link>
+        <PrecioFinal>Total a abonar: $ {totalPrice()}</PrecioFinal>
+      </FinalContenedor>
     </>
   );
 };
@@ -38,12 +40,33 @@ const AvisoCart = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 200px;
+  margin-top: 150px;
   font-weight: bold;
   font-size: 25px;
 
   button {
     width: 200px;
-    text-decoration: none;
+  }
+`;
+
+const PrecioFinal = styled.p`
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  margin: 0;
+  flex-direction: column;
+  font-size: 30px;
+  font-weight: bold;
+`;
+
+const FinalContenedor = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 10%;
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 `;

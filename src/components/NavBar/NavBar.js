@@ -4,6 +4,7 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import { Nav } from "./Nav/Nav";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 const NavBar = () => {
   //Categorias Dinamicas
@@ -11,7 +12,7 @@ const NavBar = () => {
     { id: 1, nombre: "PASTAS", route: "/category/pastas" },
     { id: 2, nombre: "TARTAS", route: "/category/tartas" },
     { id: 3, nombre: "EMPANADAS", route: "/category/empanadas" },
-    { id: 4, nombre: "PIZZAS", route: "/category/pizzas" },
+    { id: 4, nombre: "SALSAS", route: "/category/salsas" },
   ];
   return (
     <>
@@ -20,14 +21,18 @@ const NavBar = () => {
         <WhatsAppIcon fontSize="medium" sx={{ color: "gray" }} />
       </div>
 
-      <header>
+      <StyledHeader>
         <Link to="/">
           <img className="logo" src={logo} alt="angelo-logo" />
         </Link>
         <Nav category={category} />
-      </header>
+      </StyledHeader>
     </>
   );
 };
 
 export default NavBar;
+
+const StyledHeader = styled.header`
+  margin-bottom: 80px;
+`;

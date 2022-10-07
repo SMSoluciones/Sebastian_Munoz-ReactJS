@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import "./ItemListContainer.css";
 import ItemList from "../ItemList/ItemList";
 import BeatLoader from "react-spinners/BeatLoader";
 import { products } from "../../assets/products"; //Productos de base de datos.
@@ -49,3 +48,5 @@ export const ItemListContainer = (props) => {
     </>
   );
 };
+// const productCollection = collection(db, "products");
+// getDocs(productCollection);

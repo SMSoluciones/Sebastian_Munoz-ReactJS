@@ -34,11 +34,17 @@ export const ItemDetail = ({ item }) => {
           <p className="price">$ {item.price}</p>
 
           {terminarCompra ? (
-            <Link to="/cart">
-              <button>Finalizar Compra</button>
-            </Link>
+            <>
+              {" "}
+              <Link to="/">
+                <button>Agregar mas productos</button>
+              </Link>
+              <Link to="/cart">
+                <FinalizarCompra>Finalizar Compra</FinalizarCompra>
+              </Link>
+            </>
           ) : (
-            <ItemCount inicio={1} stock={10} onAdd={onAdd} />
+            <ItemCount inicio={1} stock={100} onAdd={onAdd} />
           )}
         </div>
       </div>
@@ -51,4 +57,9 @@ const Volver = styled.button`
   background-color: black;
   color: white;
   width: 100px;
+`;
+
+const FinalizarCompra = styled.button`
+  background-color: green;
+  color: white;
 `;

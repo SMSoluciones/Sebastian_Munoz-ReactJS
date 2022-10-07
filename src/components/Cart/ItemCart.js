@@ -7,42 +7,51 @@ export const ItemCart = ({ product }) => {
 
   return (
     <>
-      <ItemClass>
-        <div>
+      <ItemContainerClass>
+        <ItemClass>
+          <img src={product.image} alt="" />
           <p>Producto: {product.title}</p>
           <p>Cantidad: {product.cantidad}</p>
           <p>Precio unitario: $ {product.price}</p>
           <p>Subtotal: ${product.cantidad * product.price}</p>
-          <button onClick={() => removeItem(product.id)}>
-            Eliminar Producto
-          </button>
-        </div>
-      </ItemClass>
+        </ItemClass>
+        <button onClick={() => removeItem(product.id)}>❌</button>
+      </ItemContainerClass>
     </>
   );
 };
 
-const ItemClass = styled.div`
+const ItemContainerClass = styled.div`
   display: flex;
-  justify-content: center;
   flex-direction: row;
+  justify-content: center;
   align-items: center;
 
-  div {
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(220, 220, 220);
-    justify-content: center;
-    padding: 20px;
-    border-radius: 20px;
-  }
-
   button {
-    font-size: 15px;
-    height: 25px;
+    display: flex;
+    font-size: 10px;
     font-weight: bold;
   }
+`;
+
+const ItemClass = styled.div`
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(220, 220, 220);
+  justify-content: center;
+  align-content: center;
+  width: 80%;
+
+  img {
+    display: flex;
+    height: 50px;
+    width: 50px;
+    justify-self: left;
+    align-self: center;
+  }
+
   p {
-    margin: 8px;
+    display: flex;
+    margin: 20px;
   }
 `;

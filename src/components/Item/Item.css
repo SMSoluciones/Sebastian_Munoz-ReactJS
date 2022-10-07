@@ -1,7 +1,7 @@
 .item {
   display: flex;
   height: auto;
-  width: auto;
+  width: 250px;
   transition: transform 0.2s;
   background-color: rgb(220, 220, 220);
   flex-direction: column;
@@ -12,22 +12,16 @@
   filter: drop-shadow(5px 5px 5px gray);
   margin: 15px;
   padding: 20px;
+  text-align: center;
+}
+
+p {
+  display: flex;
 }
 
 .item:hover {
   transform: scale(1.1, 1.1);
   transition: transform 0.2s;
-}
-
-.item p {
-  display: flex;
-  align-items: left;
-  font-size: 15px;
-  height: 5px;
-}
-
-.item h5 {
-  height: 10px;
 }
 
 .item img {
@@ -44,16 +38,8 @@
   font-weight: 400;
   height: 30px;
 }
-.item a {
-  text-decoration: none;
-}
 
 .item button:hover {
   transform: scale(1.1, 1.1);
   transition: transform 0.2s;
-}
-
-.price {
-  font-size: 20px;
-  margin-bottom: 30px;
 }

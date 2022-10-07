@@ -1,9 +1,0 @@
-.item_container {
-  display: flex;
-  width: auto;
-  justify-content: center;
-  margin: 30px;
-  padding: 50px;
-  border-radius: 20px;
-  flex-wrap: wrap;
-}
