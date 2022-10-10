@@ -1,30 +1,32 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { products } from "../../assets/products";
 import { ItemDetail } from "../ItemDetail/ItemDetail";
 import styled from "styled-components";
 import BeatLoader from "react-spinners/BeatLoader";
+import { db } from "../../firebase/firebase";
+import { doc, getDoc, collection } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
   //Hooks
+  const { productId } = useParams();
   const [item, setItem] = useState({});
   const [loading, setLoading] = useState({});
-  const { productId } = useParams();
 
   useEffect(() => {
     // Promesa
-    const itemPromise = () => {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve(products);
-        }, 200);
+    const productsCollection = collection(db, "products");
+    const refDoc = doc(productsCollection, productId);
+    getDoc(refDoc) // Solo me trae un solo documento de la coleccion Products, es distinto a getDocs
+      .then((result) => {
+        setItem({
+          id: result.id,
+          ...result.data(),
+        });
+      })
+      .finally(() => {
+        setLoading(false);
       });
-    };
-    itemPromise(products).then((res) => {
-      setItem(res.find((products) => products.id === parseInt(productId)));
-      setLoading(false);
-    });
   }, [productId]);
 
   return (

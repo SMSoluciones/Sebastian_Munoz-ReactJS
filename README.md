@@ -24,7 +24,7 @@ Este repositorio esta dedicado a las entregas del modulo ReactJS de la carrera F
 
 ## ✅ Desafío: Cart View
 
-## Desafío: Item Collection
+## ✅ Desafío: Item Collection
 
 ## Desafío: Item Collection II
 

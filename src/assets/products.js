@@ -256,3 +256,27 @@ export const products = [
     image: "https://i.ibb.co/HYLcC0w/nioquis-2.jpg",
   },
 ];
+
+//➡️ Local DB
+
+// useEffect(() => {
+//   // Promesa
+//   const itemPromise = (products) => {
+//     return new Promise((resolve, reject) => {
+//       setTimeout(() => {
+//         resolve(products);
+//       }, 500);
+//     });
+//   };
+//   if (categoryId) {
+//     itemPromise(products).then((res) => {
+//       setListProducts(res.filter((products) => products.cat === categoryId));
+//       setLoading(false);
+//     });
+//   } else {
+//     itemPromise(products).then((res) => {
+//       setListProducts(res);
+//       setLoading(false);
+//     });
+//   }
+// }, [categoryId]);

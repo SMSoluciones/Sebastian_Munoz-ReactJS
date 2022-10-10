@@ -25,11 +25,14 @@ export const Cart = () => {
         <ItemCart key={product.id} product={product} />
       ))}
       <FinalContenedor>
-        <button onClick={() => clear()}>Limpiar</button>
+        <button onClick={() => clear()}>Limpiar carrito</button>
         <Link to="/">
           <button>Agregar mas productos</button>
         </Link>
-        <PrecioFinal>Total a abonar: $ {totalPrice()}</PrecioFinal>
+        <Link to="/">
+          <button>Pagar</button>
+        </Link>
+        <PrecioFinal>Total a abonar: $ {totalPrice()}.</PrecioFinal>
       </FinalContenedor>
     </>
   );
@@ -57,6 +60,7 @@ const PrecioFinal = styled.p`
   flex-direction: column;
   font-size: 30px;
   font-weight: bold;
+  padding-left: 20px;
 `;
 
 const FinalContenedor = styled.div`

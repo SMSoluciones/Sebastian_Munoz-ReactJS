@@ -18,7 +18,7 @@ const ItemList = ({ listProducts }) => {
 export default ItemList;
 
 const ItemContainer = styled.div`
-    display: flex;
+  display: flex;
   width: auto;
   justify-content: center;
   margin: 30px;

@@ -2,34 +2,44 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "../ItemList/ItemList";
 import BeatLoader from "react-spinners/BeatLoader";
-import { products } from "../../assets/products"; //Productos de base de datos.
+// import { products } from "../../assets/products"; //Productos de base de datos.
+import { db } from "../../firebase/firebase";
+import { getDocs, collection, query, where } from "firebase/firestore";
 
 export const ItemListContainer = (props) => {
   //Hooks
   let { categoryId } = useParams();
-
-  const [listProducts, setListProducts] = useState(true);
-  const [loading, setLoading] = useState({});
+  const [listProducts, setListProducts] = useState([]);
+  const [loading, setLoading] = useState([]);
 
   useEffect(() => {
     // Promesa
-    const itemPromise = (products) => {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve(products);
-        }, 500);
-      });
-    };
+    const productsCollection = collection(db, "products"); // Se crea la collection.
     if (categoryId) {
-      itemPromise(products).then((res) => {
-        setListProducts(res.filter((products) => products.cat === categoryId));
-        setLoading(false);
-      });
+      const queryFilter = query(
+        productsCollection,
+        where("cat", "==", categoryId)
+      ); // Filtro
+
+      getDocs(queryFilter)
+        .then((res) =>
+          setListProducts(
+            res.docs.map((product) => ({ ...product.data(), id: product.id }))
+          )
+        )
+        .finally(() => {
+          setLoading(false);
+        });
     } else {
-      itemPromise(products).then((res) => {
-        setListProducts(res);
-        setLoading(false);
-      });
+      getDocs(productsCollection)
+        .then((res) =>
+          setListProducts(
+            res.docs.map((product) => ({ ...product.data(), id: product.id }))
+          )
+        )
+        .finally(() => {
+          setLoading(false);
+        });
     }
   }, [categoryId]);
 
@@ -38,7 +48,6 @@ export const ItemListContainer = (props) => {
     <>
       <main>
         <h2>{props.greeting}</h2>
-
         {loading ? (
           <BeatLoader color="gray" className="spinner" />
         ) : (
@@ -48,5 +57,3 @@ export const ItemListContainer = (props) => {
     </>
   );
 };
-// const productCollection = collection(db, "products");
-// getDocs(productCollection);

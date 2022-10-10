@@ -41,12 +41,12 @@ const ItemClass = styled.div`
   justify-content: center;
   align-content: center;
   width: 80%;
+  border-radius: 10px;
 
   img {
     display: flex;
     height: 50px;
     width: 50px;
-    justify-self: left;
     align-self: center;
   }
 
