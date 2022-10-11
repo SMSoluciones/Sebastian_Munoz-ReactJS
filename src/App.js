@@ -4,6 +4,7 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Cart } from "./components/Cart/Cart";
 import { CustomProvider } from "./Context/CartContext";
+import { SalesForm } from "./components/Cart/SalesForm/SalesForm";
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
               element={<ItemDetailContainer />}
             />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/form" element={<SalesForm />} />
           </Routes>
         </CustomProvider>
       </BrowserRouter>

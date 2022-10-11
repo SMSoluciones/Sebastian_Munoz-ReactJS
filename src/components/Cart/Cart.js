@@ -29,7 +29,7 @@ export const Cart = () => {
         <Link to="/">
           <button>Agregar mas productos</button>
         </Link>
-        <Link to="/">
+        <Link to="/form">
           <button>Pagar</button>
         </Link>
         <PrecioFinal>Total a abonar: $ {totalPrice()}.</PrecioFinal>

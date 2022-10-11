@@ -33,7 +33,7 @@ export const CustomProvider = ({ children }) => {
     }
   };
 
-  console.log("Cart de CartContext:", cart);
+  // console.log("Cart de CartContext:", cart); // Test
 
   //Eliminar item
   const removeItem = (id) => {
