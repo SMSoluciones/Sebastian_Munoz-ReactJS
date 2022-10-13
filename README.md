@@ -26,6 +26,6 @@ Este repositorio esta dedicado a las entregas del modulo ReactJS de la carrera F
 
 ## ✅ Desafío: Item Collection
 
-## Desafío: Item Collection II
+## ✅ Desafío: Item Collection II
 
 ### Entrega del Proyecto Final🧨

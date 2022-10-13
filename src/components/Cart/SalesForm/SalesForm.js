@@ -5,7 +5,6 @@ import { useCartContext } from "../../../Context/CartContext";
 
 export const SalesForm = () => {
   const { cart, totalPrice, clear } = useCartContext();
-  const { purchaseId, setPurchaseId } = useState("");
   const [inputValues, setInputValues] = useState({
     name: "",
     surname: "",
