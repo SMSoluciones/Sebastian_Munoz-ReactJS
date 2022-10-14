@@ -3,7 +3,6 @@ import Item from "../Item/Item";
 import styled from "styled-components";
 
 const ItemList = ({ listProducts }) => {
-  // console.log(listProducts) //Test;
   return (
     <>
       <ItemContainer>
@@ -19,10 +18,9 @@ export default ItemList;
 
 const ItemContainer = styled.div`
   display: flex;
-  width: auto;
+  width: fit-content;
   justify-content: center;
-  margin: 30px;
-  padding: 50px;
+  align-content:center;
   border-radius: 20px;
   flex-wrap: wrap;
 }

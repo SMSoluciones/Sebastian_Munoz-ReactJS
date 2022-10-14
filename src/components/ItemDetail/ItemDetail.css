@@ -1,8 +1,7 @@
 .itemDetail {
   display: flex;
-  justify-self: center;
+  justify-content: center;
   align-items: center;
-  flex-direction: row;
   background-color: rgb(220, 220, 220);
   padding: 40px;
   border-radius: 20px;

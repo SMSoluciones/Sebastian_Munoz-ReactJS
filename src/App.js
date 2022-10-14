@@ -17,7 +17,7 @@ const App = () => {
               path="/"
               element={
                 <ItemListContainer
-                  greeting={"¡Bienvenida Ana a nuestra tienda! 🧑‍🍳"}
+                  greeting={"¡Bienvenid@ a nuestra tienda! 👨‍🍳"}
                 />
               }
             />

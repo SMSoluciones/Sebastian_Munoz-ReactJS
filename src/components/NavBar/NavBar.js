@@ -1,9 +1,8 @@
 import React from "react";
-import logo from "../../assets/logo.svg";
+
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import { Nav } from "./Nav/Nav";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const NavBar = () => {
@@ -16,15 +15,12 @@ const NavBar = () => {
   ];
   return (
     <>
-      <div className="contacto_directo">
+      <SocialBar>
         <InstagramIcon fontSize="medium" sx={{ color: "gray" }} />
         <WhatsAppIcon fontSize="medium" sx={{ color: "gray" }} />
-      </div>
+      </SocialBar>
 
       <StyledHeader>
-        <Link to="/">
-          <img className="logo" src={logo} alt="angelo-logo" />
-        </Link>
         <Nav category={category} />
       </StyledHeader>
     </>
@@ -35,4 +31,13 @@ export default NavBar;
 
 const StyledHeader = styled.header`
   margin-bottom: 80px;
+`;
+
+const SocialBar = styled.div`
+  display: flex;
+  background-color: black;
+  height: 40px;
+  justify-content: right;
+  padding-right: 10%;
+  align-items: center;
 `;

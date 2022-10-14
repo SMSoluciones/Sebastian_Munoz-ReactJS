@@ -3,14 +3,14 @@
 }
 
 body {
-  margin: 0;
-  background-color: rgb(206, 206, 206);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  background-color: rgb(206, 206, 206);
 }
 
 code {
@@ -18,21 +18,6 @@ code {
     monospace;
 }
 
-main {
-  display: flex;
-  justify-content: center;
-  margin-top: 100px;
-  margin-bottom: 50px;
-  flex-direction: column;
-}
-
-main h2 {
-  display: flex;
-  justify-content: center;
-}
-
-.spinner {
-  display: flex;
-  justify-content: center;
-  margin: 40px;
+a {
+  color: rgb(19, 19, 19);
 }
