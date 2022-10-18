@@ -13,7 +13,7 @@ export const Nav = ({ category }) => {
         </Link>
         {category.map((category) => {
           return (
-            <Link className="links" key={category.id} to={category.route}>
+            <Link className="links" key={category.nombre} to={category.route}>
               {category.nombre}
             </Link>
           );
