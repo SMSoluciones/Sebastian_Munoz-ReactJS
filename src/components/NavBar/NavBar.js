@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import { Nav } from "./Nav/Nav";
@@ -10,10 +10,14 @@ import { db } from "../../firebase/firebase";
 const NavBar = () => {
   const [category, setCategory] = useState([]);
 
-  const categoryCollection = collection(db, "category");
-  getDocs(categoryCollection).then((res) =>
-    setCategory(res.docs.map((category) => ({ ...category.data() })))
-  );
+  useEffect(() => {
+    const categoryCollection = collection(db, "category");
+    getDocs(categoryCollection).then((res) =>
+      setCategory(res.docs.map((category) => category.data()))
+    );
+  }, [setCategory]);
+
+  console.log(category); //TEST
 
   return (
     <>
