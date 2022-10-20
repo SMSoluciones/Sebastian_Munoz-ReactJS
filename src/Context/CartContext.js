@@ -1,16 +1,9 @@
-import React, { createContext, useState, useContext, useEffect } from "react";
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut,
-} from "firebase/auth";
-import { auth } from "../firebase/firebase";
+import React, { createContext, useState, useContext } from "react";
 
-const CustomContext = createContext([]);
-export const useCustomContext = () => useContext(CustomContext);
+const CartContext = createContext([]);
+export const useCartContext = () => useContext(CartContext);
 
-export const CustomProvider = ({ children }) => {
+export const CartProvider = ({ children }) => {
   //Cart Functions
   const [cart, setCart] = useState([]);
 
@@ -47,29 +40,9 @@ export const CustomProvider = ({ children }) => {
     return cart.find((product) => product.id === id) ? true : false;
   };
 
-  const logout = () => {
-    signOut(auth);
-  };
-
-  //Login Functions
-  const [user, setUser] = useState(null);
-
-  const signUp = (email, password) =>
-    createUserWithEmailAndPassword(auth, email, password);
-
-  const login = (email, password) => {
-    signInWithEmailAndPassword(auth, email, password);
-  };
-
-  useEffect(() => {
-    onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-    });
-  }, []);
-
   return (
     <>
-      <CustomContext.Provider
+      <CartContext.Provider
         value={{
           //Cart Functions
           addItem,
@@ -79,15 +52,10 @@ export const CustomProvider = ({ children }) => {
           totalPrice,
           totalProd,
           cart,
-          //Login Functions
-          signUp,
-          login,
-          logout,
-          user,
         }}
       >
         {children}
-      </CustomContext.Provider>
+      </CartContext.Provider>
     </>
   );
 };

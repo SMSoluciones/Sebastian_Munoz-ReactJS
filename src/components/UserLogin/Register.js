@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { useCustomContext } from "../../Context/CustomContext";
+import { useAuthContext } from "../../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 export const Register = () => {
-  const { signUp } = useCustomContext();
+  const { signUp } = useAuthContext();
   const navigate = useNavigate();
   const [error, setError] = useState();
 
@@ -11,7 +11,7 @@ export const Register = () => {
     email: "",
     password: "",
   });
-  const handlechange = ({ target: { name, value } }) => {
+  const handleChange = ({ target: { name, value } }) => {
     setUser({ ...user, [name]: value });
   };
   const handleSubmit = async (e) => {
@@ -38,13 +38,13 @@ export const Register = () => {
           type="email"
           name="email"
           placeholder="Email"
-          onChange={handlechange}
+          onChange={handleChange}
         />
         <input
           type="password"
           name="password"
           placeholder="Password"
-          onChange={handlechange}
+          onChange={handleChange}
         />
         <button>Registrar</button>
       </form>

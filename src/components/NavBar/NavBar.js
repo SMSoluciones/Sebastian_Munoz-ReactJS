@@ -7,12 +7,12 @@ import styled from "styled-components";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 import { Link } from "react-router-dom";
-import { useCustomContext } from "../../Context/CustomContext";
+import { useAuthContext } from "../../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
   const [category, setCategory] = useState([]);
-  const { user, logout } = useCustomContext();
+  const { user, logout } = useAuthContext();
   const navigate = useNavigate();
 
   useEffect(() => {

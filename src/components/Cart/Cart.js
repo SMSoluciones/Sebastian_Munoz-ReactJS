@@ -1,11 +1,11 @@
 import React from "react";
-import { useCustomContext } from "../../Context/CustomContext";
+import { useCartContext } from "../../Context/CartContext";
 import { ItemCart } from "./ItemCart";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Cart = () => {
-  const { cart, totalPrice, clear } = useCustomContext();
+  const { cart, totalPrice, clear } = useCartContext();
 
   if (cart.length === 0) {
     return (

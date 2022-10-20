@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../../../firebase/firebase";
-import { useCustomContext } from "../../../Context/CustomContext";
+import { useCartContext } from "../../../Context/CartContext";
 
 export const SalesForm = () => {
-  const { cart, totalPrice, clear } = useCustomContext();
+  const { cart, totalPrice, clear } = useCartContext();
   const [inputValues, setInputValues] = useState({
     name: "",
     surname: "",
