@@ -3,8 +3,10 @@ import { ItemListContainer } from "../src/components/ItemListContainer/ItemListC
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Cart } from "./components/Cart/Cart";
-import { CustomProvider } from "./Context/CartContext";
+import { CustomProvider } from "./Context/CustomContext";
 import { SalesForm } from "./components/Cart/SalesForm/SalesForm";
+import { Login } from "./components/UserLogin/Login";
+import { Register } from "./components/UserLogin/Register";
 
 const App = () => {
   return (
@@ -31,6 +33,8 @@ const App = () => {
             />
             <Route path="/cart" element={<Cart />} />
             <Route path="/form" element={<SalesForm />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
           </Routes>
         </CustomProvider>
       </BrowserRouter>

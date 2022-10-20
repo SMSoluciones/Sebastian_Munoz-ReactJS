@@ -1,9 +1,9 @@
 import React from "react";
-import { useCartContext } from "../../Context/CartContext";
+import { useCustomContext } from "../../Context/CustomContext";
 import styled from "styled-components";
 
 export const ItemCart = ({ product }) => {
-  const { removeItem } = useCartContext();
+  const { removeItem } = useCustomContext();
 
   return (
     <>

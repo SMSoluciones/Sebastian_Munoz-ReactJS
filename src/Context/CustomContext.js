@@ -1,24 +1,28 @@
-import React, { useState, useContext } from "react";
+import React, { createContext, useState, useContext, useEffect } from "react";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+} from "firebase/auth";
+import { auth } from "../firebase/firebase";
 
-// Context
-const CartContext = React.createContext([]);
-export const useCartContext = () => useContext(CartContext);
+const CustomContext = createContext([]);
+export const useCustomContext = () => useContext(CustomContext);
 
 export const CustomProvider = ({ children }) => {
+  //Cart Functions
   const [cart, setCart] = useState([]);
 
-  // Suma el precio total.
   const totalPrice = () =>
     cart.reduce((prev, act) => prev + act.cantidad * act.price, 0);
 
-  // Suma el precio total de productos.
   const totalProd = () =>
     cart.reduce(
       (acumulador, productActual) => acumulador + productActual.cantidad,
       0
     );
 
-  //Agregar item al carrito.
   const addItem = (item, cantidad) => {
     if (isInCart(item.id)) {
       setCart(
@@ -33,23 +37,41 @@ export const CustomProvider = ({ children }) => {
     }
   };
 
-  // console.log("Cart de CartContext:", cart); // Test
-
-  //Eliminar item
   const removeItem = (id) => {
     return setCart(cart.filter((product) => product.id !== id));
   };
-  //Borrar todos los items
+
   const clear = () => setCart([]);
-  //Buscar en el Cart
+
   const isInCart = (id) => {
     return cart.find((product) => product.id === id) ? true : false;
   };
 
+  const logout = () => {
+    signOut(auth);
+  };
+
+  //Login Functions
+  const [user, setUser] = useState(null);
+
+  const signUp = (email, password) =>
+    createUserWithEmailAndPassword(auth, email, password);
+
+  const login = (email, password) => {
+    signInWithEmailAndPassword(auth, email, password);
+  };
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+  }, []);
+
   return (
     <>
-      <CartContext.Provider
+      <CustomContext.Provider
         value={{
+          //Cart Functions
           addItem,
           clear,
           isInCart,
@@ -57,10 +79,15 @@ export const CustomProvider = ({ children }) => {
           totalPrice,
           totalProd,
           cart,
+          //Login Functions
+          signUp,
+          login,
+          logout,
+          user,
         }}
       >
         {children}
-      </CartContext.Provider>
+      </CustomContext.Provider>
     </>
   );
 };

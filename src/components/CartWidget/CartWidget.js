@@ -1,10 +1,10 @@
 import React from "react";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
-import { useCartContext } from "../../Context/CartContext";
+import { useCustomContext } from "../../Context/CustomContext";
 import styled from "styled-components";
 
 export const CartWidget = () => {
-  const { totalProd } = useCartContext("");
+  const { totalProd } = useCustomContext("");
 
   return (
     <>

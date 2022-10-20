@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore"; // Esto me permitira inicializar el Firestore
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
   //Credenciales de mi Firebase.
@@ -13,3 +14,4 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig); // Creacion de la App con la configuracion.
 export const db = getFirestore(app); // Esto es lo unico que necesito actualmente para manejar la base de datos.
+export const auth = getAuth(app); // Esto lo necesito para manejar el login.
