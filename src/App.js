@@ -8,6 +8,8 @@ import { AuthProvider } from "./Context/AuthContext";
 import { SalesForm } from "./components/Cart/SalesForm/SalesForm";
 import { Login } from "./components/UserLogin/Login";
 import { Register } from "./components/UserLogin/Register";
+import { Footer } from "./components/Footer/Footer";
+// import { ProtectRoute } from "./components/ProtectRoute/ProtectRoute";
 
 const App = () => {
   return (
@@ -38,6 +40,7 @@ const App = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
             </Routes>
+            <Footer />
           </CartProvider>
         </AuthProvider>
       </BrowserRouter>

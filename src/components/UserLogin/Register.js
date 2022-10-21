@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 export const Register = () => {
   const { signUp } = useAuthContext();
+  const [error, setError] = useState("");
   const navigate = useNavigate();
-  const [error, setError] = useState();
 
   const [user, setUser] = useState({
     email: "",

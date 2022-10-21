@@ -37,7 +37,7 @@ const NavBar = () => {
             Login
           </Link>
         )}
-        <button onClick={handleLogout}>Logout</button>
+        {user && <button onClick={handleLogout}>Salir</button>}
         <InstagramIcon fontSize="medium" sx={{ color: "gray" }} />
         <WhatsAppIcon fontSize="medium" sx={{ color: "gray" }} />
       </SocialBar>
@@ -76,6 +76,11 @@ const SocialBar = styled.div`
   .user {
     display: flex;
     color: white;
+    margin-right: 10px;
+  }
+  button {
+    height: 30px;
+    background-color: gray;
     margin-right: 10px;
   }
 `;

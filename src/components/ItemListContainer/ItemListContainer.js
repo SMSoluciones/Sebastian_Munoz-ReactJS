@@ -18,7 +18,7 @@ export const ItemListContainer = (props) => {
         productsCollection,
         where("cat", "==", categoryId)
       );
-
+      
       getDocs(queryFilter)
         .then((res) =>
           setListProducts(

@@ -16,13 +16,10 @@ export const AuthProvider = ({ children }) => {
   const signUp = (email, password) =>
     createUserWithEmailAndPassword(auth, email, password);
 
-  const login = (email, password) => {
+  const login = (email, password) =>
     signInWithEmailAndPassword(auth, email, password);
-  };
 
-  const logout = () => {
-    signOut(auth);
-  };
+  const logout = () => signOut(auth);
 
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
