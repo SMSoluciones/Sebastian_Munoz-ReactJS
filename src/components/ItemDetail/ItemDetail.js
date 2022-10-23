@@ -12,7 +12,6 @@ export const ItemDetail = ({ item }) => {
   const [terminarCompra, setTerminarCompra] = useState(false);
   const { addItem } = useCartContext();
 
-  // Respuesta a Carga en log.
   const onAdd = (cantidad) => {
     setTerminarCompra(true);
     addItem(item, cantidad);

@@ -3,6 +3,8 @@ import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../../../firebase/firebase";
 import { useCartContext } from "../../../Context/CartContext";
 import styled from "styled-components";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const SalesForm = () => {
   const { cart, totalPrice, clear } = useCartContext();
@@ -33,6 +35,16 @@ export const SalesForm = () => {
     }).then((res) => {
       console.log(res.id);
       clear();
+      toast.info(`El id de su compra es: ${res.id}`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
     });
   };
 
@@ -78,6 +90,18 @@ export const SalesForm = () => {
             onChange={handleOnChange}
           />
           <button>Finalizar Compra</button>
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+          />
         </form>
       </FormContainer>
     </>
