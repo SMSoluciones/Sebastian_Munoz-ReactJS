@@ -33,7 +33,6 @@ export const SalesForm = () => {
       date: serverTimestamp(),
       total,
     }).then((res) => {
-      console.log(res.id);
       clear();
       toast.info(`El id de su compra es: ${res.id}`, {
         position: "top-right",

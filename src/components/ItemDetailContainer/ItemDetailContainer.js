@@ -8,16 +8,14 @@ import { db } from "../../firebase/firebase";
 import { doc, getDoc, collection } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
-  //Hooks
   const { productId } = useParams();
   const [item, setItem] = useState({});
   const [loading, setLoading] = useState({});
 
   useEffect(() => {
-    // Promesa
     const productsCollection = collection(db, "products");
     const refDoc = doc(productsCollection, productId);
-    getDoc(refDoc) // Solo me trae un solo documento de la coleccion Products, es distinto a getDocs
+    getDoc(refDoc)
       .then((result) => {
         setItem({
           id: result.id,
