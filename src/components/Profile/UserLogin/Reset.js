@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { useAuthContext } from "../../Context/AuthContext";
+import { useAuthContext } from "../../../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 export const Reset = () => {
   const { resetPassword } = useAuthContext();
@@ -36,18 +37,40 @@ export const Reset = () => {
 
   return (
     <>
-      <div>{error && <p>{error}</p>}</div>
+      <FormContainer>
+        <div>{error && <p>{error}</p>}</div>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            onChange={handleChange}
+          />
 
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          onChange={handleChange}
-        />
-
-        <button>Restaurar</button>
-      </form>
+          <button>Restaurar</button>
+        </form>
+      </FormContainer>
     </>
   );
 };
+
+const FormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+
+  form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  input {
+    height: 30px;
+    width: 300px;
+    border-radius: 10px;
+    border: none;
+    margin: 5px;
+  }
+`;

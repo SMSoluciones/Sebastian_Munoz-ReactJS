@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../../../firebase/firebase";
 import { useCartContext } from "../../../Context/CartContext";
+import styled from "styled-components";
 
 export const SalesForm = () => {
   const { cart, totalPrice, clear } = useCartContext();
+
   const [inputValues, setInputValues] = useState({
     name: "",
     surname: "",
@@ -36,8 +38,8 @@ export const SalesForm = () => {
 
   return (
     <>
-      <h1>Usted debera abonar: $ {totalPrice()} </h1>
-      <div>
+      <FormContainer>
+        <h2>Usted debera abonar: $ {totalPrice()} </h2>
         <form onSubmit={finalSale}>
           <input
             name="name"
@@ -77,7 +79,28 @@ export const SalesForm = () => {
           />
           <button>Finalizar Compra</button>
         </form>
-      </div>
+      </FormContainer>
     </>
   );
 };
+
+const FormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+
+  form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  input {
+    height: 30px;
+    width: 300px;
+    border-radius: 10px;
+    border: none;
+    margin: 5px;
+  }
+`;

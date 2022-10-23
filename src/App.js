@@ -6,11 +6,11 @@ import { Cart } from "./components/Cart/Cart";
 import { CartProvider } from "./Context/CartContext";
 import { AuthProvider } from "./Context/AuthContext";
 import { SalesForm } from "./components/Cart/SalesForm/SalesForm";
-import { Login } from "./components/UserLogin/Login";
-import { Register } from "./components/UserLogin/Register";
-import { Footer } from "./components/Footer/Footer";
-import { Reset } from "./components/UserLogin/Reset";
-// import { ProtectRoute } from "./components/ProtectRoute/ProtectRoute";
+import { Login } from "./components/Profile/UserLogin/Login";
+import { Register } from "./components/Profile/UserLogin/Register";
+import { Reset } from "./components/Profile/UserLogin/Reset";
+import { Profile } from "./components/Profile/Profile";
+import { ProtectRoute } from "./components/ProtectRoute/ProtectRoute";
 
 const App = () => {
   return (
@@ -41,8 +41,15 @@ const App = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/reset" element={<Reset />} />
               <Route path="/register" element={<Register />} />
+              <Route
+                path="/profile"
+                element={
+                  <ProtectRoute>
+                    <Profile />
+                  </ProtectRoute>
+                }
+              />
             </Routes>
-            <Footer />
           </CartProvider>
         </AuthProvider>
       </BrowserRouter>

@@ -9,6 +9,7 @@ import { db } from "../../firebase/firebase";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { Avatar } from "@mui/material";
 
 const NavBar = () => {
   const [category, setCategory] = useState([]);
@@ -31,12 +32,15 @@ const NavBar = () => {
     <>
       <SocialBar>
         {user ? (
-          <div className="user">{user.displayName || user.email} </div>
+          <Link to="/profile">
+            <div className="user">{user.displayName || user.email} </div>
+          </Link>
         ) : (
           <Link to="/login" className="linkLog">
             Login
           </Link>
         )}
+        {user && <Avatar src="" />}
         {user && <button onClick={handleLogout}>Salir</button>}
 
         <InstagramIcon fontSize="medium" sx={{ color: "gray" }} />
@@ -59,7 +63,7 @@ const StyledHeader = styled.header`
 const SocialBar = styled.div`
   display: flex;
   background-color: black;
-  height: 40px;
+  height: 50px;
   justify-content: right;
   padding-right: 10%;
   align-items: center;
@@ -80,8 +84,9 @@ const SocialBar = styled.div`
     margin-right: 10px;
   }
   button {
+    color: white;
     height: 30px;
-    background-color: gray;
+    background-color: black;
     margin-right: 10px;
   }
 `;

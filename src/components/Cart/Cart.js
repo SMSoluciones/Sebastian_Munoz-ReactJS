@@ -49,6 +49,7 @@ const AvisoCart = styled.div`
 
   button {
     width: 200px;
+    cursor: pointer;
   }
 `;
 
@@ -72,5 +73,6 @@ const FinalContenedor = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
   }
 `;

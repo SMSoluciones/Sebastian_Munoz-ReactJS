@@ -1,6 +1,7 @@
 import React from "react";
 import { useCartContext } from "../../Context/CartContext";
 import styled from "styled-components";
+import CancelIcon from "@mui/icons-material/Cancel";
 
 export const ItemCart = ({ product }) => {
   const { removeItem } = useCartContext();
@@ -15,7 +16,9 @@ export const ItemCart = ({ product }) => {
           <p>Precio unitario: $ {product.price}</p>
           <p>Subtotal: ${product.cantidad * product.price}</p>
         </ItemClass>
-        <button onClick={() => removeItem(product.id)}>❌</button>
+        <button onClick={() => removeItem(product.id)}>
+          <CancelIcon />
+        </button>
       </ItemContainerClass>
     </>
   );
@@ -31,6 +34,7 @@ const ItemContainerClass = styled.div`
     display: flex;
     font-size: 10px;
     font-weight: bold;
+    cursor: pointer;
   }
 `;
 
