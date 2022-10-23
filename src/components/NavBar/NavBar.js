@@ -31,13 +31,14 @@ const NavBar = () => {
     <>
       <SocialBar>
         {user ? (
-          <div className="user">{user.email}</div>
+          <div className="user">{user.displayName || user.email} </div>
         ) : (
           <Link to="/login" className="linkLog">
             Login
           </Link>
         )}
         {user && <button onClick={handleLogout}>Salir</button>}
+
         <InstagramIcon fontSize="medium" sx={{ color: "gray" }} />
         <WhatsAppIcon fontSize="medium" sx={{ color: "gray" }} />
       </SocialBar>

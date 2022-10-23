@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useAuthContext } from "../../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const Login = () => {
-  const { login } = useAuthContext();
+  const { login, loginWithGoogle } = useAuthContext();
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -31,6 +32,10 @@ export const Login = () => {
       }
     }
   };
+  const handleGoogleSignIn = async () => {
+    await loginWithGoogle();
+    navigate("/");
+  };
 
   return (
     <>
@@ -53,6 +58,12 @@ export const Login = () => {
         />
         <button type="submit">Login</button>
       </form>
+
+      <Link to={"/reset"}>
+        <button>¿Olvido su contraseña?</button>
+      </Link>
+
+      <button onClick={handleGoogleSignIn}>Login con Google</button>
     </>
   );
 };

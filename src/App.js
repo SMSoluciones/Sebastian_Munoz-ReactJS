@@ -9,6 +9,7 @@ import { SalesForm } from "./components/Cart/SalesForm/SalesForm";
 import { Login } from "./components/UserLogin/Login";
 import { Register } from "./components/UserLogin/Register";
 import { Footer } from "./components/Footer/Footer";
+import { Reset } from "./components/UserLogin/Reset";
 // import { ProtectRoute } from "./components/ProtectRoute/ProtectRoute";
 
 const App = () => {
@@ -38,6 +39,7 @@ const App = () => {
               <Route path="/cart" element={<Cart />} />
               <Route path="/form" element={<SalesForm />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/reset" element={<Reset />} />
               <Route path="/register" element={<Register />} />
             </Routes>
             <Footer />

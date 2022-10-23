@@ -4,6 +4,9 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
+  GoogleAuthProvider,
+  signInWithPopup,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import { auth } from "../firebase/firebase";
 
@@ -19,6 +22,8 @@ export const AuthProvider = ({ children }) => {
   const login = (email, password) =>
     signInWithEmailAndPassword(auth, email, password);
 
+  const resetPassword = (email) => sendPasswordResetEmail(auth, email);
+
   const logout = () => signOut(auth);
 
   useEffect(() => {
@@ -26,6 +31,11 @@ export const AuthProvider = ({ children }) => {
       setUser(currentUser);
     });
   }, []);
+
+  const loginWithGoogle = () => {
+    const googleSign = new GoogleAuthProvider();
+    signInWithPopup(auth, googleSign);
+  };
 
   return (
     <>
@@ -35,6 +45,8 @@ export const AuthProvider = ({ children }) => {
           login,
           logout,
           user,
+          loginWithGoogle,
+          resetPassword,
         }}
       >
         {children}

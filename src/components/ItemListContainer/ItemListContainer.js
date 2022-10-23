@@ -5,11 +5,13 @@ import BeatLoader from "react-spinners/BeatLoader";
 import { db } from "../../firebase/firebase";
 import { getDocs, collection, query, where } from "firebase/firestore";
 import styled from "styled-components";
+import { useAuthContext } from "../../Context/AuthContext";
 
 export const ItemListContainer = (props) => {
   let { categoryId } = useParams();
   const [listProducts, setListProducts] = useState([]);
   const [loading, setLoading] = useState([]);
+  const { user } = useAuthContext();
 
   useEffect(() => {
     const productsCollection = collection(db, "products");
@@ -18,7 +20,7 @@ export const ItemListContainer = (props) => {
         productsCollection,
         where("cat", "==", categoryId)
       );
-      
+
       getDocs(queryFilter)
         .then((res) =>
           setListProducts(
@@ -44,7 +46,11 @@ export const ItemListContainer = (props) => {
   return (
     <>
       <ItemListClass>
-        <h2>{props.greeting}</h2>
+        <h2>
+          {user
+            ? `¡Bienvenid@ ${user.displayName || "a nuestra tienda!"}! 🧑‍🍳`
+            : `¡Bienvenid@ a nuestra tienda! 🧑‍🍳`}
+        </h2>
         {loading ? (
           <BeatLoader color="gray" className="spinner" />
         ) : (

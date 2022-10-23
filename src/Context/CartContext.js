@@ -4,7 +4,6 @@ const CartContext = createContext([]);
 export const useCartContext = () => useContext(CartContext);
 
 export const CartProvider = ({ children }) => {
-  //Cart Functions
   const [cart, setCart] = useState([]);
 
   const totalPrice = () =>
@@ -44,7 +43,6 @@ export const CartProvider = ({ children }) => {
     <>
       <CartContext.Provider
         value={{
-          //Cart Functions
           addItem,
           clear,
           isInCart,
