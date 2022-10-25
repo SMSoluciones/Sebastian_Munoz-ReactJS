@@ -57,6 +57,7 @@ export const SalesForm = () => {
             type="name"
             placeholder="Nombre"
             onChange={handleOnChange}
+            required
           />
           <input
             name="surname"
@@ -69,24 +70,28 @@ export const SalesForm = () => {
             type="email"
             placeholder="Email"
             onChange={handleOnChange}
+            required
           />
           <input
             name="phone"
             type="tel"
             placeholder="Telefono"
             onChange={handleOnChange}
+            required
           />
           <input
             name="adress"
             type="street-address"
             placeholder="Direccion"
             onChange={handleOnChange}
+            required
           />
           <input
             name="flat"
             type="text"
             placeholder="Departamento"
             onChange={handleOnChange}
+            required
           />
           <button>Finalizar Compra</button>
           <ToastContainer
