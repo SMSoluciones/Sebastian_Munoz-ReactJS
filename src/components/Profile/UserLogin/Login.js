@@ -34,9 +34,22 @@ export const Login = () => {
       }
     }
   };
-  const handleGoogleSignIn = async () => {
-    await loginWithGoogle();
-    navigate("/");
+  const handleGoogleSignIn = async (e) => {
+    e.preventDefault();
+    setError("");
+    try {
+      await loginWithGoogle();
+    } catch (error) {
+      if (error.code === "auth/cancelled-popup-request") {
+        setError("Solicitud cancelada.");
+      } else if (error.code === "auth/popup-closed-by-user") {
+        setError("Ventana cerrada");
+      }
+    } finally {
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
+    }
   };
 
   return (
