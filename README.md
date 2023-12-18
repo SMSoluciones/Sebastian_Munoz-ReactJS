@@ -1,35 +1,7 @@
-# E-Commerce Angelo Almacen de Pastas:
+# E-Commerce Angelo Pasta Store:
+This repository is dedicated to the Final Delivery of the ReactJS module in the Full Stack Developer course at CoderHouse. The idea for this project is to create an E-Commerce platform for a pasta store that belongs to my family.
 
-Este repositorio esta dedicado a la Entrega Final del modulo ReactJS de la carrera de Full Stack Developer de CoderHouse. La idea para este proyecto es la de crear un E-Commerce de un almacen de pastas que pertenece a mi familia.
+To achieve this, I created a product catalog divided by categories. Both the catalog and the categories are directly linked to Firebase. It also features a user login section that allows access with either a registered email or Google account.
 
-Para ello cree un catalogo de productos dividido por categorias. Tanto el catalogo como las categorias se encuentran directamente vinculadas a Firebase. Tambien posee una seccion de Login de usuario que permite el ingreso tanto con un Mail registrado como tambien con un Google.
+Upon selecting a product, it can be added to the cart. After adding all the necessary products, the total cart value is calculated, displaying the final price before proceeding to the payment stage. After entering all the required information, the payment is processed, and the respective ID code is returned through an alert.
 
-Al seleccionar un producto se puede agregar al carrito y luego de sumar todos los productos necesarios se suma todo el carrito dando el precio final y pasa a la instancia de pago. Luego de colocado todos los datos se procede a pagar y se devuelve mediante una Alerta el codigo de ID respectivo.
-
-# Repositorio de Desafios:
-
-## ✅ Desafío: Crear la app utilizando el CLI
-
-## ✅ Desafío: Menú e-commerce
-
-## ✅ Desafío: Crea tu landing
-
-## ✅ Desafío: Contador con botón
-
-## ✅ Desafío: Catálogo con MAPS y Promises
-
-## ✅ Desafío: Detalle de Producto
-
-## ✅ Primera Entrega del Proyecto Final
-
-## ✅ Desafío: Sincronizar counter
-
-## ✅ Desafío: CartContext
-
-## ✅ Desafío: Cart View
-
-## ✅ Desafío: Item Collection
-
-## ✅ Desafío: Item Collection II
-
-### ✅Entrega del Proyecto Final🧨
